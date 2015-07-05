@@ -19,7 +19,7 @@ Android uses Classic Bluetooth.  iOS uses Bluetooth Low Energy.
 
 Install with Cordova cli
 
-    $ cordova plugin add https://github.com/don/BluetoothSerial.git
+    $ cordova plugin add https://github.com/madshall/bluetoothSerial.git
     
 This plugin is also available for [PhoneGap Build](https://build.phonegap.com/plugins/23)
 
