@@ -200,9 +200,23 @@ public class BluetoothSerial extends CordovaPlugin {
 
         } else if (action.equals(ENABLE)) {
 
-            enableBluetoothCallback = callbackContext;
+            try{
+                if(!bluetoothAdapter.enable()){
+                    if(bluetoothAdapter.isEnabled()){
+                        callbackContext.success();
+                    }else{
+                        callbackContext.error("Unable to turn Bluetooth on");
+                    }
+                }else{
+                    callbackContext.success();
+                }
+            }catch(Exception e){
+                callbackContext.error("Very bad error with enabling Bluetooth");
+            }
+
+            /*enableBluetoothCallback = callbackContext;
             Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            cordova.startActivityForResult(this, intent, REQUEST_ENABLE_BLUETOOTH);
+            cordova.startActivityForResult(this, intent, REQUEST_ENABLE_BLUETOOTH);*/
 
         } else if (action.equals(DISCOVER_UNPAIRED)) {
 
