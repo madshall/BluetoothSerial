@@ -505,18 +505,18 @@ Enable Bluetooth on the device.
 
 ### Description
 
-Function `enable` prompts the user to enable Bluetooth.
+Function `enable` doesn't prompt the user to enable Bluetooth.
 
 #### Android
 
 `enable` is only supported on Android and does not work on iOS or Windows Phone.
 
-If `enable` is called when Bluetooth is already enabled, the user will not prompted and the success callback will be invoked.
+If `enable` is called when Bluetooth is already enabled, the success callback will be invoked.
 
 ### Parameters
 
-- __success__: Success callback function, invoked if the user enabled Bluetooth.
-- __failure__: Error callback function, invoked if the user does not enabled Bluetooth.
+- __success__: Success callback function, invoked if Bluetooth was enabled.
+- __failure__: Error callback function, invoked if an error occured trying to enable Bluetooth.
 
 ### Quick Example
 
@@ -525,7 +525,7 @@ If `enable` is called when Bluetooth is already enabled, the user will not promp
             console.log("Bluetooth is enabled");
         },
         function() {
-            console.log("The user did *not* enable Bluetooth");
+            console.log("Can't enable Bluetooth");
         }
     );
 
