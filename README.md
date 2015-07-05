@@ -55,6 +55,8 @@ There are some [sample projects](https://github.com/don/BluetoothSerial/tree/mas
 - [bluetoothSerial.enable](#enable)
 - [bluetoothSerial.discoverUnpaired](#discoverunpaired)
 - [bluetoothSerial.makeDiscoverable](#makediscoverable)
+- [bluetoothSerial.getName](#getname)
+- [bluetoothSerial.setName](#setname)
 - [bluetoothSerial.setDeviceDiscoveredListener](#setdevicediscoveredlistener)
 - [bluetoothSerial.clearDeviceDiscoveredListener](#cleardevicediscoveredlistener)
 
@@ -585,11 +587,33 @@ Calling `connect` on an unpaired Bluetooth device should begin the Android pairi
 
 Make the device discoverable
 
-    bluetoothSerial.makeDiscoverable(timout, success, failure);
+    bluetoothSerial.makeDiscoverable(timeout, success, failure);
 
 ### Description
 
 Function `makeDiscoverable` makes the device discoverable for specified number of seconds(3600 max). The success callback is called when done.
+
+
+## getName
+
+Gets device's Bluetooth friendly name
+
+    bluetoothSerial.getName(success, failure);
+
+### Description
+
+The success callback is called with device's Bluetooth name as an argument.
+
+
+## setName
+
+Sets device's Bluetooth friendly name
+
+    bluetoothSerial.setName(name, success, failure);
+
+### Description
+
+Sets the device's Bluetooth friendly name to `name`
 
 
 ## setDeviceDiscoveredListener

@@ -37,6 +37,16 @@ module.exports = {
         cordova.exec(success, failure, "BluetoothSerial", "read", []);
     },
 
+    // get bluetooth friendly name
+    getName: function (success, failure) {
+        cordova.exec(success, failure, "BluetoothSerial", "getName", []);
+    },
+
+    // set bluetooth friendly name
+    setName: function (name, success, failure) {
+        cordova.exec(success, failure, "BluetoothSerial", "setName", [name]);
+    },
+
     // reads the data in the buffer up to and including the delimiter
     readUntil: function (delimiter, success, failure) {
         cordova.exec(success, failure, "BluetoothSerial", "readUntil", [delimiter]);

@@ -37,6 +37,8 @@ public class BluetoothSerial extends CordovaPlugin {
     private static final String WRITE = "write";
     private static final String AVAILABLE = "available";
     private static final String READ = "read";
+    private static final String GET_NAME = "getName";
+    private static final String SET_NAME = "setName";
     private static final String READ_UNTIL = "readUntil";
     private static final String SUBSCRIBE = "subscribe";
     private static final String UNSUBSCRIBE = "unsubscribe";
@@ -132,6 +134,14 @@ public class BluetoothSerial extends CordovaPlugin {
 
             callbackContext.success(read());
 
+        } else if (action.equals(GET_NAME)) {
+            String name = bluetoothAdapter.getName();
+            callbackContext.success(name);
+        } else if (action.equals(SET_NAME)) {
+            String name = args.getString(0);
+            
+            bluetoothAdapter.setName(name);
+            callbackContext.success();
         } else if (action.equals(READ_UNTIL)) {
 
             String interesting = args.getString(0);
